@@ -7,9 +7,9 @@ return {
 			{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
 			{ "<leader>fs", "<cmd>Telescope live_grep<cr>" },
 			{ "<leader>fc", "<cmd>Telescope grep_string<cr>" },
-			{ "<leader>fb", "<cmd>Telescope buffers<cr>" },
 			{ "<leader>fh", "<cmd>Telescope help_tags<cr>" },
 			{ "<leader>fp", "<cmd>Telescope project<cr>" },
+			{ "<leader>fe", "<cmd>Telescope file_browser<cr>" },
 		},
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
@@ -37,6 +37,7 @@ return {
 					},
 				},
 				extensions = {
+					file_browser = {},
 					project = {
 						theme = "dropdown",
 						order_by = "asc",
@@ -47,6 +48,7 @@ return {
 
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("project")
+			require("telescope").load_extension("file_browser")
 		end,
 	},
 }

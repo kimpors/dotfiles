@@ -14,7 +14,6 @@ return {
 				dashboard = true,
 				markdown = true,
 				mason = true,
-				nvimtree = true,
 				lsp_saga = true,
 				dap = {
 					enabled = true,

@@ -1,0 +1,54 @@
+" Options
+set adblocker=update
+set devtoolsposition=split
+set dialogalert=show
+set dialogconfirm=show
+set dialogprompt=show
+set downloadmethod=confirm
+set guifontsize=16
+set mintabwidth=250
+set permissioncamera=ask
+set permissioncertificateerror=ask
+set permissiondisplaycapture=ask
+set permissionmediadevices=allowfull
+set permissionmicrophone=ask
+set permissionpersistentstorage=allow
+set redirecttohttp
+set splitbelow
+set tabclosefocus=right
+set tabreopenposition=previous
+set useragent=%firefox
+set pdfbehavior=view
+set downloadpath=/home/kimpors/downloads
+
+set followchars=custom:asdfghjkl
+set guiscrollbar=never
+set nativetheme=dark
+set spell=false
+
+
+nmap i <insertAtFirstInput>
+
+
+nmap ff <:set followelement=url><startFollowCurrentTab>
+nmap Ff <:set followelement=url><startFollowNewTab>
+
+nmap fi <:set followelement+=inputs-insert><:set followelement+=inputs-click><startFollowCurrentTab>
+nmap Fi <:set followelement+=inputs-insert><:set followelement+=inputs-click><startFollowNewTab>
+
+nmap fm <:set followelement=media,image><startFollowCurrentTab>
+nmap Fm <:set followelement=media,image><startFollowNewTab>
+
+
+nmap k <p.scrollUp> 
+nmap j <p.scrollDown> 
+
+nmap K <nextTab>
+nmap J <previousTab>
+
+nmap <C-k> <moveTabForward>
+nmap <C-j> <moveTabBackward>
+
+nmap L <forwardInHistory>
+nmap H <backInHistory>
+

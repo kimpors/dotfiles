@@ -19,7 +19,7 @@ return {
 		config = function()
 			local cmp = require("cmp")
 
-			require("luasnip").filetype_extend("html", { "cs" })
+			require("luasnip").filetype_extend("typescriptreact", { "html" })
 			require("luasnip.loaders.from_vscode").lazy_load()
 
 			cmp.setup({
