@@ -2,7 +2,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 
-		ft = SERVER_LANGS.types,
+    lazy = true,
 		dependencies = {
 			{
 				"nvimdev/lspsaga.nvim",

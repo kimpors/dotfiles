@@ -12,9 +12,10 @@ return {
 			{ "<leader>fe", "<cmd>Telescope file_browser<cr>" },
 		},
 		dependencies = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      { "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-project.nvim" },
+		  { "nvim-telescope/telescope-file-browser.nvim" },
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		config = function()
 			require("telescope").setup({

@@ -4,13 +4,13 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-export PATH=$PATH:$HOME/.dotnet/tools:$XDG_DATA_HOME/cargo/bin:$XDG_DATA_HOME/mold/bin
-
 export XDG_RUNTIME_DIR=/run/user/$UID
 export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_STATE_HOME="$HOME"/.local/state
+
+export PATH=$PATH:$HOME/.dotnet/tools:$XDG_DATA_HOME/cargo/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/builds
 
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
@@ -26,7 +26,5 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 
 export VIEB_DATAFOLDER="$XDG_DATA_HOME"/vieb
 export VIEB_CONFIG_FILE="$XDG_CONFIG_HOME"/viebrc
-
-export VIMINIT='let $MYVIMRC = !has("nvim") ? "$XDG_CONFIG_HOME"/vim/vimrc : "$XDG_CONFIG_HOME"/nvim/init.lua | so $MYVIMRC'
 
 startx

@@ -1,8 +1,7 @@
 return {
 	"glepnir/dashboard-nvim",
 
-  lazy = false,
-  priority = 999,
+  lazy = true,
 	config = function()
 		require("dashboard").setup({
 			theme = "hyper",

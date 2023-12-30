@@ -15,7 +15,6 @@ bind "TAB:menu-complete"
 alias ls="ls --color=auto -w55 -h -N"
 alias grep="grep --color=auto"
 alias wget="wget --hsts-file '$XDG_DATA_HOME'/wget-hsts"
-alias nvim="nvim -u '$XDG_CONFIG_HOME'/nvim/init.lua"
 
 cd () { builtin cd "$@" && ls; }
 nitch

@@ -4,6 +4,11 @@ return {
 
   lazy = false,
   priority = 1000,
+	dependencies = {
+    "nvim-tree/nvim-web-devicons",
+	  "glepnir/dashboard-nvim",
+		"nvim-lualine/lualine.nvim",
+	},
 	config = function()
 		require("catppuccin").setup({
 			integrations = {

@@ -1,7 +1,7 @@
 return {
 	"williamboman/mason-lspconfig.nvim",
 
-  ft = SERVER_LANGS.types,
+  lazy = true,
   cmd = "Mason",
 	dependencies = {
 		{
