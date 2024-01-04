@@ -15,6 +15,8 @@ bind "TAB:menu-complete"
 alias ls="ls --color=auto -w55 -h -N"
 alias grep="grep --color=auto"
 alias wget="wget --hsts-file '$XDG_DATA_HOME'/wget-hsts"
+alias htop="htop -t"
+alias sudo="doas"
 
 cd () { builtin cd "$@" && ls; }
 nitch
