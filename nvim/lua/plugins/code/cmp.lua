@@ -2,7 +2,7 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 
-		event = "InsertEnter",
+        event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = {
 			{
 				"L3MON4D3/LuaSnip",
@@ -17,10 +17,12 @@ return {
 			"hrsh7th/cmp-path",
 		},
 		config = function()
+            local luasnip = require("luasnip")
 			local cmp = require("cmp")
 
+            require("luasnip.loaders.from_vscode").lazy_load({ exclude = "cs" })
+            require("luasnip.loaders.from_snipmate").lazy_load()
 			require("luasnip").filetype_extend("typescriptreact", { "html" })
-			require("luasnip.loaders.from_vscode").lazy_load()
 
 			cmp.setup({
 				snippet = {
@@ -33,10 +35,15 @@ return {
 					["<C-j>"] = cmp.mapping.select_next_item(),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = false }),
+                    ["<Tab>"] = cmp.mapping(function()
+                        if luasnip.expand_or_jumpable() then
+                            luasnip.expand_or_jump()
+                        end
+                    end, { "i", "s" }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
+					{ name = "nvim_lsp" },
 					{ name = "path" },
 				}),
 			})

@@ -1,0 +1,108 @@
+snippet namespace
+	namespace ${1:Namespace};
+
+snippet cw
+	Console.Write(${1});
+
+snippet cwl
+	Console.WriteLine(${1});
+
+snippet if
+	if (${1:true})
+	{
+		$0
+	}
+
+snippet el
+	else
+	{
+		$0
+	}
+
+snippet switch
+	switch (${1})
+	{
+		$0
+	}
+
+snippet do
+	do
+	{
+		$0
+	} while (${1:true});
+
+snippet wh
+	while (${1:true})
+	{
+		$0
+	}
+
+snippet for
+	for (${1:int} ${2:i} = 0; $2 < ${3:count}; $2++)
+	{
+		$0
+	}
+
+snippet forr
+	for (${1:int} ${2:i} = ${3:length}; $2 >= 0; $2--)
+	{
+		$0
+	}
+
+snippet fore
+	foreach (${1:var} ${2:item} in ${3:items})
+	{
+		${0}
+	}
+
+snippet interface
+	public interface ${1:Interface}
+	{
+		${0}
+	}
+
+snippet class
+	${1:public} class ${2:${Class}}
+	{
+		$0
+	}
+
+snippet ctor
+	public ${1:Ctor}(${2})
+	{
+		$0
+	}
+
+snippet prop
+	${1:public} ${2:int} ${3} { ${4:get}; ${5:set}; }
+
+snippet propf
+	private ${1:int} ${2:property};
+	public $1 ${3:Property}
+	{
+		get { return $2; }
+		set { $2 = value; }
+	}
+
+snippet method
+	${1:public} ${2:void} ${3}(${4})
+	{
+		${0}
+	}
+
+snippet struct
+	${1:public} struct ${2:Struct}
+	{
+		$0
+	}
+
+snippet ///
+	/// <summary>
+	/// $0
+	/// </summary>
+
+snippet <p
+	<param name="${1}">${2:$1}</param>
+
+snippet <r
+	<returns>${1}</returns>
