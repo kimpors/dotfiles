@@ -8,10 +8,6 @@ return {
 				"L3MON4D3/LuaSnip",
 				version = "2.*",
 				build = "make install_jsregexp",
-
-				dependencies = {
-					"rafamadriz/friendly-snippets",
-				},
 			},
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-path",
@@ -20,7 +16,7 @@ return {
             local luasnip = require("luasnip")
 			local cmp = require("cmp")
 
-            require("luasnip.loaders.from_vscode").lazy_load({ exclude = "cs" })
+			require("luasnip.loaders.from_vscode").lazy_load( {exclude = { "html", "cs" }})
             require("luasnip.loaders.from_snipmate").lazy_load()
 			require("luasnip").filetype_extend("typescriptreact", { "html" })
 
