@@ -10,7 +10,9 @@ export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_STATE_HOME="$HOME"/.local/state
 
-export PATH=$PATH:$HOME/.dotnet/tools:$XDG_DATA_HOME/cargo/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/builds
+export PATH=$PATH:$HOME/.dotnet/tools:$XDG_DATA_HOME/cargo/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/builds:$HOME/development/flutter/bin
+
+export MANPAGER="nvim +Man!"
 
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority

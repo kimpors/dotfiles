@@ -11,23 +11,6 @@ SERVER_LANGS = {
 		"clangd",
 	},
 
-	types = {
-		"lua",
-		"c",
-		"cs",
-		"html",
-		"css",
-		"json",
-		"javascript",
-		"typescript",
-		"typescriptreact",
-		"git_config",
-		"git_rebase",
-		"gitcommit",
-		"gitignore",
-		"gitattributes",
-	},
-
 	treesitter = {
 		"lua",
     "vim",
@@ -53,8 +36,6 @@ SERVER_LANGS = {
 
 require("lazy").setup({
 	{
-		{ import = "plugins.ui" },
-		{ import = "plugins.code" },
-		{ import = "plugins.code.lsp" },
+		{ import = "plugins" },
 	},
 })

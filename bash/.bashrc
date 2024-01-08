@@ -18,6 +18,7 @@ alias ls="ls --color=auto -w55 -h -N"
 alias grep="grep --color=auto"
 alias wget="wget --hsts-file '$XDG_DATA_HOME'/wget-hsts"
 alias htop="htop -t"
+alias clear="clear && nitch"
 
 alias mariadb="doas rc-service mysql start && mariadb -u root -p"
 

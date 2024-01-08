@@ -6,8 +6,6 @@ return {
   priority = 1000,
 	dependencies = {
     "nvim-tree/nvim-web-devicons",
-	  "glepnir/dashboard-nvim",
-		"nvim-lualine/lualine.nvim",
 	},
 	config = function()
 		require("catppuccin").setup({
@@ -20,10 +18,6 @@ return {
 				markdown = true,
 				mason = true,
 				lsp_saga = true,
-				dap = {
-					enabled = true,
-					enable_ui = true,
-				},
 				telescope = {
 					enabled = true,
 				},

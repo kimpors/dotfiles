@@ -1,8 +1,35 @@
 return {
-	{
+
+
+  -- add easy way to install language servers
+  {
+    "williamboman/mason-lspconfig.nvim",
+
+    event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
+    cmd = "Mason",
+    dependencies = {
+      {
+        "williamboman/mason.nvim",
+
+        config = function()
+          require("mason").setup()
+        end,
+      },
+    },
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = SERVER_LANGS.names,
+        automatic_installation = true,
+      })
+    end,
+  },
+
+
+  -- configure language servers
+  {
 		"neovim/nvim-lspconfig",
 
-    lazy = true,
+    event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
 		dependencies = {
 			{
 				"nvimdev/lspsaga.nvim",
@@ -39,29 +66,6 @@ return {
 					on_attach = on_attach,
 					capabilities = cmp.default_capabilities(),
 				})
-
-				if value == "lua_ls" then
-					lspconfig[value].setup({
-						on_attach = on_attach,
-						capabilities = cmp.default_capabilities(),
-						settings = {
-							Lua = {
-								completion = {
-									callSnippet = "Replace",
-								},
-								diagnostics = {
-									globals = { "vim" },
-								},
-								workspace = {
-									library = {
-										[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-										[vim.fn.stdpath("config") .. "/lua"] = true,
-									},
-								},
-							},
-						},
-					})
-				end
 			end
 		end,
 	},
