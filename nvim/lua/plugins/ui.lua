@@ -18,9 +18,7 @@ return {
 
     ft = { "css", "html", "javascript" },
     config = function()
-      require("colorizer").setup({
-        filetypes = ft,
-      })
+      require("colorizer").setup({ filetypes = { "css", "html", "javascript" } })
     end,
   },
 
