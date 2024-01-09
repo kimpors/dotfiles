@@ -49,9 +49,4 @@ Currently constain only youtube audio playlist download script.
 
 Contributions are welcome! If you have any suggestions,    
 bug reports, or would like to contribute a new feature,    
-please create an issue or submit a pull request.    
-
-## License
-
-This project is licensed under the [MIT License](LICENSE). Feel free to    
-fork, modify, and distribute the code as per the terms of the license.
+please create an issue or submit a pull request.
