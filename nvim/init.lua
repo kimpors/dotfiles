@@ -1,7 +1,7 @@
 require("plugins-setup")
 
 SERVER_LANGS = {
-	names = {
+	lsp = {
 		"lua_ls",
 		"csharp_ls",
 		"html",
@@ -13,6 +13,8 @@ SERVER_LANGS = {
 
 	treesitter = {
 		"lua",
+    "norg",
+    "norg_meta",
     "vim",
     "regex",
     "bash",
@@ -34,8 +36,4 @@ SERVER_LANGS = {
 	},
 }
 
-require("lazy").setup({
-	{
-		{ import = "plugins" },
-	},
-})
+require("lazy").setup("plugins")

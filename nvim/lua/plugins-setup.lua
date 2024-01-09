@@ -13,6 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = ";"
 
 -- for nerd tree
 vim.g.loaded_netrw = 1

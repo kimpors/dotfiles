@@ -1,6 +1,9 @@
 return {
 
 
+  { "nvim-lua/plenary.nvim", lazy = true },
+
+
   -- add support for autopair 
   {
     "windwp/nvim-autopairs",
@@ -34,6 +37,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
 
+    cmd = "Telescope",
 		keys = {
 			{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
 			{ "<leader>fs", "<cmd>Telescope live_grep<cr>" },
@@ -43,7 +47,6 @@ return {
 			{ "<leader>fe", "<cmd>Telescope file_browser<cr>" },
 		},
 		dependencies = {
-      { "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-project.nvim" },
 		  { "nvim-telescope/telescope-file-browser.nvim" },
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -171,6 +174,31 @@ return {
         sync_install = true,
       })
     end,
+  },
 
-  }
+
+  -- for note taking
+  {
+    "nvim-neorg/neorg",
+
+    cmd = "Neorg",
+    build = ":Neorg sync-parsers",
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},
+          ["core.concealer"] = {},
+          ["core.summary"] = {},
+          ["core.dirman"] = {
+            config = {
+              workspaces = {
+                notes = "~/notes",
+              },
+              default_workspace = "notes"
+            },
+          },
+        },
+      }
+    end,
+  },
 }

@@ -18,7 +18,7 @@ return {
     },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = SERVER_LANGS.names,
+        ensure_installed = SERVER_LANGS.lsp,
         automatic_installation = true,
       })
     end,
@@ -61,7 +61,7 @@ return {
 				keymap.set("n", "<leader>o", ":Lspsaga outline<CR>", opts)
 			end
 
-			for _, value in pairs(SERVER_LANGS.names) do
+			for _, value in pairs(SERVER_LANGS.lsp) do
 				lspconfig[value].setup({
 					on_attach = on_attach,
 					capabilities = cmp.default_capabilities(),

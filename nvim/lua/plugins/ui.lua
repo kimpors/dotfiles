@@ -56,28 +56,47 @@ return {
     "glepnir/dashboard-nvim",
 
     event = "VimEnter",
-    config = function()
-      require("dashboard").setup({
-        theme = "hyper",
-        hide = {
-          statusline = false,
-        },
-        change_to_vcs_root = true,
-        config = {
-          week_header = { enable = true },
-          packages = { enable = false },
-          project = { enable = false },
-          mru = { limit = 5, label = "Recent" },
-          disable_move = true,
+    opts = function ()
+      local logo = [[
+╔─────────────────────────────────────────────────────────────────────────╗
+│                                                                         │
+│                                                                         │
+│                                                ███                      │
+│                                               ░░░                       │
+│      ████████    ██████   ██████  █████ █████ ████  █████████████       │
+│     ░░███░░███  ███░░███ ███░░███░░███ ░░███ ░░███ ░░███░░███░░███      │
+│      ░███ ░███ ░███████ ░███ ░███ ░███  ░███  ░███  ░███ ░███ ░███      │
+│      ░███ ░███ ░███░░░  ░███ ░███ ░░███ ███   ░███  ░███ ░███ ░███      │
+│      ████ █████░░██████ ░░██████   ░░█████    █████ █████░███ █████     │
+│     ░░░░ ░░░░░  ░░░░░░   ░░░░░░     ░░░░░    ░░░░░ ░░░░░ ░░░ ░░░░░      │
+│                                                                         │
+│                                                                         │
+╚─────────────────────────────────────────────────────────────────────────╝
+      ]]
 
-          shortcut = {
-            { desc = "Lazy", key = "L", action = "Lazy" },
-            { desc = "Mason", key = "M", action = "Mason" },
-          },
-          footer = {},
+
+    logo = string.rep("\n", 8) .. logo .. "\n\n"
+
+    local opts = {
+      theme = "doom",
+      hide = {
+        statusline = false,
+      },
+      config = {
+        header = vim.split(logo, "\n"),
+        center = {
+          { action = "Telescope project",   desc = " Projects",   icon = " ", key = "p" },
+          { action = "Neorg index",         desc = " Notes",      icon = " ", key = "n" },
+          { action = "Lazy",                desc = " Lazy",       icon = " ", key = "l" },
+          { action = "Mason",               desc = " Mason",      icon = " ", key = "m" },
+          { action = "qa",                  desc = " Quit",       icon = " ", key = "q" },
         },
-      })
-    end,
+        footer = {},
+      },
+    }
+
+    return opts
+    end
   },
 
 
