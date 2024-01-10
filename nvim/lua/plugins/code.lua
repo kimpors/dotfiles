@@ -65,6 +65,11 @@ return {
 							prompt_position = "bottom",
 						},
 					},
+          mappings = {
+            n = {
+              ["q"] = "close",
+            }
+          }
 				},
 				extensions = {
 					file_browser = {},
@@ -187,7 +192,25 @@ return {
       require("neorg").setup {
         load = {
           ["core.defaults"] = {},
-          ["core.concealer"] = {},
+          ["core.concealer"] = {
+            config = {
+              icon_preset = "diamond"
+            }
+
+          },
+          ["core.keybinds"] = {
+            config = {
+              hook = function (keybinds)
+                keybinds.map("norg", "n", "q", function ()
+                  vim.cmd("Neorg return")
+
+                  if string.len(vim.fn.expand("%")) == 0 then
+                    vim.cmd("Dashboard")
+                  end
+                end)
+              end
+            }
+          },
           ["core.summary"] = {},
           ["core.dirman"] = {
             config = {

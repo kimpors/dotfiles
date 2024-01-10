@@ -70,7 +70,10 @@ keymap.set("n", "L", "$")
 -- close editor
 keymap.set("n", "<C-d>", ":conf q<CR>")
 
-keymap.set("n", "<leader>z", "<cmd>lua require('plan').Dialog()<cr>")
+-- keymap.set("n", "<leader>z", "<cmd>lua require('plan').Dialog()<cr>")
+
+-- open notes
+keymap.set("n", "<leader>n", "<cmd>Neorg index<cr>")
 
 -- terminal
 keymap.set("t", "<ESC>", "<C-\\><C-n>")
