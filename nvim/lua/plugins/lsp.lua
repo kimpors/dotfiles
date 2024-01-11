@@ -53,12 +53,11 @@ return {
 			local on_attach = function(_, bufnr)
 				local opts = { noremap = true, silent = true, buffer = bufnr }
 
-				keymap.set("n", "gh", ":Lspsaga finder<CR>", opts)
-				keymap.set({ "n", "v" }, "<leader>ca", ":Lspsaga code_action<CR>", opts)
-				keymap.set("n", "gr", ":Lspsaga rename<CR>", opts)
-				keymap.set("n", "gd", ":Lspsaga peek_definition<CR>", opts)
-				keymap.set("n", "<leader>sb", ":Lspsaga show_buf_diagnostics<CR>", opts)
-				keymap.set("n", "<leader>o", ":Lspsaga outline<CR>", opts)
+				keymap.set("n", "<leader>lf", ":Lspsaga finder<CR>", opts)
+				keymap.set({ "n", "v" }, "<leader>la", ":Lspsaga code_action<CR>", opts)
+				keymap.set("n", "<leader>lr", ":Lspsaga rename<CR>", opts)
+				keymap.set("n", "<leader>ld", ":Lspsaga peek_definition<CR>", opts)
+				keymap.set("n", "<leader>lb", ":Lspsaga show_buf_diagnostics<CR>", opts)
 			end
 
 			for _, value in pairs(SERVER_LANGS.lsp) do

@@ -58,7 +58,7 @@ opt.splitbelow = true
 local api = vim.api
 
 api.nvim_create_autocmd("FileType", {
-  pattern = { "norg", "gitcommit" },
+  pattern = { "norg", "oil", "gitcommit", "diff" },
   callback = function ()
     vim.cmd("setlocal nonumber")
     vim.cmd("setlocal norelativenumber")
@@ -72,11 +72,19 @@ local keymap = vim.keymap
 keymap.set("n", "x", '"_x')
 keymap.set("v", "y", '"+y')
 
--- close editor
-keymap.set("n", "q", ":conf q<CR>")
 
 -- open notes
 keymap.set("n", "<leader>n", "<cmd>Neorg index<cr>")
 
+-- open file browser
+keymap.set("n", "<leader>o", "<cmd>Oil --float<cr>")
+
+-- close editor
+keymap.set("n", "Q", ":conf qa<cr>")
+
 -- terminal
 keymap.set("t", "<ESC>", "<C-\\><C-n>")
+
+-- gitsign 
+keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis<cr>")
+keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>")

@@ -41,14 +41,11 @@ return {
 		keys = {
 			{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
 			{ "<leader>fs", "<cmd>Telescope live_grep<cr>" },
-			{ "<leader>fc", "<cmd>Telescope grep_string<cr>" },
 			{ "<leader>fh", "<cmd>Telescope help_tags<cr>" },
 			{ "<leader>fp", "<cmd>Telescope project<cr>" },
-			{ "<leader>fe", "<cmd>Telescope file_browser<cr>" },
 		},
 		dependencies = {
 			{ "nvim-telescope/telescope-project.nvim" },
-		  { "nvim-telescope/telescope-file-browser.nvim" },
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		config = function()
@@ -72,8 +69,11 @@ return {
           }
 				},
 				extensions = {
-					file_browser = {},
 					project = {
+            base_dirs = {
+              { path = '~/projects', max_depth = 4 }
+            },
+
 						theme = "dropdown",
 						order_by = "asc",
 						sync_with_nvim_tree = true,
@@ -83,7 +83,6 @@ return {
 
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("project")
-			require("telescope").load_extension("file_browser")
 		end,
 	},
 
@@ -141,7 +140,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
 
-    event = "InsertEnter",
+    event = "VeryLazy",
     config = function()
       require("gitsigns").setup()
     end,
@@ -224,4 +223,24 @@ return {
       }
     end,
   },
+
+
+  -- file browser
+  {
+    'stevearc/oil.nvim',
+
+    cmd = "Oil",
+    config = function ()
+      require("oil").setup({
+        keymaps = {
+          ["o"] = "actions.select",
+          ["O"] = "actions.parent",
+          ["p"] = "actions.preview",
+          ["~"] = "actions.open_cwd",
+          ["."] = "actions.toggle_hidden",
+          ["q"] = "actions.close",
+        },
+      })
+    end
+  }
 }
