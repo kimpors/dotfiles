@@ -10,14 +10,12 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
+
 vim.opt.rtp:prepend(lazypath)
 
+-- leaders
 vim.g.mapleader = " "
 vim.g.maplocalleader = ";"
-
--- for nerd tree
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 -- disable providers
 vim.g.loaded_ruby_provider = 0
@@ -56,6 +54,16 @@ opt.backspace = "indent,eol,start"
 opt.splitright = true
 opt.splitbelow = true
 
+-- AUTOCMD
+local api = vim.api
+
+api.nvim_create_autocmd("FileType", {
+  pattern = { "norg", "gitcommit" },
+  callback = function ()
+    vim.cmd("setlocal nonumber")
+    vim.cmd("setlocal norelativenumber")
+  end
+})
 
 --KEYMAPS
 local keymap = vim.keymap
@@ -64,13 +72,8 @@ local keymap = vim.keymap
 keymap.set("n", "x", '"_x')
 keymap.set("v", "y", '"+y')
 
-keymap.set("n", "H", "0")
-keymap.set("n", "L", "$")
-
 -- close editor
-keymap.set("n", "<C-d>", ":conf q<CR>")
-
--- keymap.set("n", "<leader>z", "<cmd>lua require('plan').Dialog()<cr>")
+keymap.set("n", "q", ":conf q<CR>")
 
 -- open notes
 keymap.set("n", "<leader>n", "<cmd>Neorg index<cr>")
