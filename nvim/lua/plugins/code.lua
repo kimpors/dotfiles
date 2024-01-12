@@ -103,7 +103,7 @@ return {
 		},
 		config = function()
       local luasnip = require("luasnip")
-			local cmp = require("cmp")
+      local cmp = require("cmp")
 
 			require("luasnip.loaders.from_vscode").lazy_load( {exclude = { "html", "cs" }})
       require("luasnip.loaders.from_snipmate").lazy_load()
@@ -120,11 +120,13 @@ return {
 					["<C-j>"] = cmp.mapping.select_next_item(),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = false }),
-          -- ["<Tab>"] = cmp.mapping(function()
-          --     if luasnip.expand_or_jumpable() then
-          --         luasnip.expand_or_jump()
-          --     end
-          -- end, { "i", "s" }),
+          ["<Tab>"] = cmp.mapping(function(fallback)
+              if luasnip.expand_or_jumpable() then
+                  luasnip.expand_or_jump()
+              else
+                fallback()
+              end
+          end, { "i", "s" }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "luasnip" },
@@ -195,7 +197,6 @@ return {
             config = {
               icon_preset = "diamond"
             }
-
           },
           ["core.keybinds"] = {
             config = {

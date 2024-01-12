@@ -54,6 +54,9 @@ opt.backspace = "indent,eol,start"
 opt.splitright = true
 opt.splitbelow = true
 
+-- for neorg
+opt.conceallevel = 3
+
 -- AUTOCMD
 local api = vim.api
 
@@ -64,6 +67,13 @@ api.nvim_create_autocmd("FileType", {
     vim.cmd("setlocal norelativenumber")
   end
 })
+
+-- api.nvim_create_autocmd("FileType", {
+--   pattern = { "norg" },
+--   callback = function ()
+--     vim.cmd("set conceallevel=3")
+--   end
+-- })
 
 --KEYMAPS
 local keymap = vim.keymap
