@@ -2,6 +2,8 @@ require("plugins-setup")
 
 SERVER_LANGS = {
 	lsp = {
+        "rust_analyzer",
+        "taplo",
 		"lua_ls",
 		"csharp_ls",
 		"html",
@@ -12,14 +14,16 @@ SERVER_LANGS = {
 	},
 
 	treesitter = {
+        "rust",
 		"lua",
-    "norg",
-    "norg_meta",
-    "vim",
-    "regex",
-    "bash",
-    "markdown",
-    "markdown_inline",
+        "toml",
+        "norg",
+        "norg_meta",
+        "vim",
+        "regex",
+        "bash",
+        "markdown",
+        "markdown_inline",
 		"c",
 		"c_sharp",
 		"html",

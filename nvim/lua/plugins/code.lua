@@ -100,6 +100,7 @@ return {
 			},
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-path",
+      "rafamadriz/friendly-snippets"
 		},
 		config = function()
       local luasnip = require("luasnip")
@@ -193,6 +194,7 @@ return {
       require("neorg").setup {
         load = {
           ["core.defaults"] = {},
+          ["core.summary"] = {},
           ["core.concealer"] = {
             config = {
               icon_preset = "diamond"
@@ -211,7 +213,6 @@ return {
               end
             }
           },
-          ["core.summary"] = {},
           ["core.dirman"] = {
             config = {
               workspaces = {
@@ -225,23 +226,22 @@ return {
     end,
   },
 
+      -- file browser
+    {
+        'stevearc/oil.nvim',
 
-  -- file browser
-  {
-    'stevearc/oil.nvim',
-
-    cmd = "Oil",
-    config = function ()
-      require("oil").setup({
-        keymaps = {
-          ["o"] = "actions.select",
-          ["O"] = "actions.parent",
-          ["p"] = "actions.preview",
-          ["~"] = "actions.open_cwd",
-          ["."] = "actions.toggle_hidden",
-          ["q"] = "actions.close",
-        },
-      })
-    end
-  }
+        cmd = "Oil",
+        config = function ()
+          require("oil").setup({
+            keymaps = {
+              ["o"] = "actions.select",
+              ["O"] = "actions.parent",
+              ["p"] = "actions.preview",
+              ["~"] = "actions.open_cwd",
+              ["."] = "actions.toggle_hidden",
+              ["q"] = "actions.close",
+            },
+          })
+        end
+    }
 }
