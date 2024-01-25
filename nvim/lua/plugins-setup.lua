@@ -64,16 +64,21 @@ opt.conceallevel = 3
 local api = vim.api
 
 api.nvim_create_autocmd("FileType", {
-  pattern = { "norg", "oil", "gitcommit", "diff" },
+  pattern = { "norg", "term", "oil", "gitcommit", "diff" },
   callback = function ()
     vim.cmd("setlocal nonumber")
     vim.cmd("setlocal norelativenumber")
   end
 })
 
-
 --KEYMAPS
 local keymap = vim.keymap
+
+keymap.set("n", "<leader>t", function ()
+    vim.cmd("split term://bash")
+    vim.cmd("setf term")
+    vim.cmd("startinsert")
+end)
 
 -- general keymaps
 keymap.set("n", "x", '"_x')
@@ -91,6 +96,7 @@ keymap.set("n", "Q", ":conf qa<cr>")
 
 -- terminal
 keymap.set("t", "<ESC>", "<C-\\><C-n>")
+keymap.set("t", "q", "<cmd>exit<cr>")
 
 -- gitsign 
 keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis<cr>")

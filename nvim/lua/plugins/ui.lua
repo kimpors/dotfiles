@@ -128,6 +128,7 @@ return {
             "TelescopePrompt",
             "lazy",
             "norg",
+            "term",
             "oil",
             "mason",
 						"help",
