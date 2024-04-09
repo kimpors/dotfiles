@@ -10,7 +10,18 @@ export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_STATE_HOME="$HOME"/.local/state
 
-export PATH=$PATH:$HOME/.dotnet/tools:$XDG_DATA_HOME/cargo/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/builds:$HOME/development/flutter/bin
+export PATH=$PATH:$XDG_DATA_HOME/cargo/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/builds
+
+# .NET SDK Configuration
+export DOTNET_CLI_TELEMETRY_OPTOUT=1 # Disable analytics
+export DOTNET_ROOT="/usr/bin/dotnet"
+export DOTNET_HOME="/usr/bin/dotnet"
+export DOTNET_ROLL_FORWARD_TO_PRERELEASE=1
+
+# Add the .NET SDK to the system paths so we can use the `dotnet` tool.
+export PATH="$PATH:/usr/bin/dotnet"
+export PATH="$PATH:/usr/bin/dotnet/sdk"
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 export MANPAGER="nvim +Man!"
 
@@ -28,5 +39,6 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 
 export VIEB_DATAFOLDER="$XDG_DATA_HOME"/vieb
 export VIEB_CONFIG_FILE="$XDG_CONFIG_HOME"/viebrc
+
 
 startx

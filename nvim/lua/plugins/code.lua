@@ -1,90 +1,88 @@
 return {
+    { "nvim-lua/plenary.nvim", lazy = true },
 
 
-  { "nvim-lua/plenary.nvim", lazy = true },
+    -- support for autopair 
+    {
+        "windwp/nvim-autopairs",
 
-
-  -- add support for autopair 
-  {
-    "windwp/nvim-autopairs",
-
-    event = "InsertEnter",
-    config = function()
-      require("nvim-autopairs").setup({
-        disable_filetype = { "TelescopePrompt", "vim" },
-      })
-    end,
-  },
-
-
-  -- add auto comments 
-  {
-    "numToStr/Comment.nvim",
-
-    keys = {
-      { "gc", mode = { "n", "v" } },
-      { "gb", mode = { "n", "v" } },
+        event = "InsertEnter",
+        config = function()
+          require("nvim-autopairs").setup({
+            disable_filetype = { "TelescopePrompt", "vim" },
+          })
+        end,
     },
-    config = function()
-      require("Comment").setup()
-    end,
-
-  },
 
 
-  -- add fuzzy finder support
-  {
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.5",
+    -- auto comments 
+    {
+        "numToStr/Comment.nvim",
 
-    cmd = "Telescope",
-		keys = {
-			{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
-			{ "<leader>fs", "<cmd>Telescope live_grep<cr>" },
-			{ "<leader>fh", "<cmd>Telescope help_tags<cr>" },
-			{ "<leader>fp", "<cmd>Telescope project<cr>" },
-		},
-		dependencies = {
-			{ "nvim-telescope/telescope-project.nvim" },
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		},
-		config = function()
-			require("telescope").setup({
+        keys = {
+          { "gc", mode = { "n", "v" } },
+          { "gb", mode = { "n", "v" } },
+        },
+        config = function()
+          require("Comment").setup()
+        end,
+    },
 
-				defaults = {
-					layout_strategy = "horizontal",
-					layout_config = {
-						horizontal = {
-							height = 0.9,
-							width = 0.9,
-							preview_cutoff = 0,
-							preview_width = 0.7,
-							prompt_position = "bottom",
-						},
-					},
-          mappings = {
-            n = {
-              ["q"] = "close",
-            }
-          }
-				},
-				extensions = {
-					project = {
-            base_dirs = {
-              { path = '~/projects', max_depth = 4 }
+
+
+    -- fuzzy finder support
+    {
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.5",
+
+            cmd = "Telescope",
+            keys = {
+                { "<leader>ff", "<cmd>Telescope find_files<cr>" },
+                { "<leader>fs", "<cmd>Telescope live_grep<cr>" },
+                { "<leader>fh", "<cmd>Telescope help_tags<cr>" },
+                { "<leader>fp", "<cmd>Telescope project<cr>" },
             },
+            dependencies = {
+                { "nvim-telescope/telescope-project.nvim" },
+                { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+            },
+            config = function()
+                require("telescope").setup({
 
-						theme = "dropdown",
-						order_by = "asc",
-						sync_with_nvim_tree = true,
-					},
-				},
-			})
+                    defaults = {
+                        layout_strategy = "horizontal",
+                        layout_config = {
+                            horizontal = {
+                                height = 0.9,
+                                width = 0.9,
+                                preview_cutoff = 0,
+                                preview_width = 0.7,
+                                prompt_position = "bottom",
+                            },
+                        },
+              mappings = {
+                n = {
+                  ["q"] = "close",
+                }
+              }
+                    },
+                    extensions = {
+                        project = {
+                base_dirs = {
+                  { path = '~/projects', max_depth = 4 }
+                },
 
-			require("telescope").load_extension("fzf")
-			require("telescope").load_extension("project")
-		end,
-	},
+                            theme = "dropdown",
+                            order_by = "asc",
+                            sync_with_nvim_tree = true,
+                        },
+                    },
+                })
+
+                require("telescope").load_extension("fzf")
+                require("telescope").load_extension("project")
+            end,
+        },
 
 
   -- add autocompletion support
@@ -183,10 +181,17 @@ return {
     end,
   },
 
+  	-- for neorg
+  	{
+        "vhyrro/luarocks.nvim",
+        priority = 1000,
+        config = true,
+	},
 
   -- for note taking
   {
     "nvim-neorg/neorg",
+	dependencies = { "luarocks.nvim" },
 
     cmd = "Neorg",
     build = ":Neorg sync-parsers",
@@ -243,5 +248,5 @@ return {
             },
           })
         end
-    }
+    },
 }

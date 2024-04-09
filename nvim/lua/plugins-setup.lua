@@ -32,7 +32,7 @@ opt.number = true
 -- tabs & indentation
 opt.tabstop = 4
 opt.shiftwidth = 4
-opt.expandtab = true
+opt.expandtab = false
 opt.autoindent = true
 
 -- lie wrapping
@@ -64,7 +64,7 @@ opt.conceallevel = 3
 local api = vim.api
 
 api.nvim_create_autocmd("FileType", {
-  pattern = { "norg", "term", "oil", "gitcommit", "diff" },
+  pattern = { "norg", "term", "oil", "gitcommit", "diff", "checkhealth" },
   callback = function ()
     vim.cmd("setlocal nonumber")
     vim.cmd("setlocal norelativenumber")

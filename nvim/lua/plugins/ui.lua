@@ -130,6 +130,7 @@ return {
             "norg",
             "term",
             "oil",
+            "checkhealth",
             "mason",
 						"help",
 						"gitcommit",

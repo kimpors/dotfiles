@@ -1,35 +1,33 @@
 return {
+    -- language server manager
+    {
+        "williamboman/mason-lspconfig.nvim",
 
+        event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
+        cmd = "Mason",
+        dependencies = {
+          {
+            "williamboman/mason.nvim",
 
-  -- add easy way to install language servers
-  {
-    "williamboman/mason-lspconfig.nvim",
-
-    event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
-    cmd = "Mason",
-    dependencies = {
-      {
-        "williamboman/mason.nvim",
-
+            config = function()
+              require("mason").setup()
+            end,
+          },
+        },
         config = function()
-          require("mason").setup()
+          require("mason-lspconfig").setup({
+            ensure_installed = SERVER_LANGS.lsp,
+            automatic_installation = true,
+          })
         end,
       },
-    },
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = SERVER_LANGS.lsp,
-        automatic_installation = true,
-      })
-    end,
-  },
 
 
-  -- configure language servers
-  {
+    -- language servers benefits
+    {
 		"neovim/nvim-lspconfig",
 
-    event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
+        event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
 		dependencies = {
 			{
 				"nvimdev/lspsaga.nvim",
@@ -66,6 +64,11 @@ return {
 					capabilities = cmp.default_capabilities(),
 				})
 			end
+
+            lspconfig.gdscript.setup({
+				on_attach = on_attach,
+                filetype = { "gd", "gdscript", "gdscript3" },
+            })
 		end,
 	},
 }
