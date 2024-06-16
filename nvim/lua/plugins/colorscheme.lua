@@ -2,11 +2,9 @@ return {
 	"catppuccin/nvim",
 	name = "catppuccin",
 
-  lazy = false,
-  priority = 1000,
-	dependencies = {
-    "nvim-tree/nvim-web-devicons",
-	},
+	lazy = false,
+	priority = 1000,
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("catppuccin").setup({
 			integrations = {

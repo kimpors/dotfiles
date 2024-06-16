@@ -1,7 +1,7 @@
 return {
-    -- language server manager
-    {
-        "williamboman/mason-lspconfig.nvim",
+-- language server manager
+	{
+    	"williamboman/mason-lspconfig.nvim",
 
         event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
         cmd = "Mason",
@@ -23,8 +23,8 @@ return {
       },
 
 
-    -- language servers benefits
-    {
+-- language servers benefits
+	{
 		"neovim/nvim-lspconfig",
 
         event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },

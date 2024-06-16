@@ -1,8 +1,8 @@
 return {
-    { "nvim-lua/plenary.nvim", lazy = true },
+	{ "nvim-lua/plenary.nvim", lazy = true },
 
 
-    -- support for autopair 
+-- support for autopair 
     {
         "windwp/nvim-autopairs",
 
@@ -15,7 +15,7 @@ return {
     },
 
 
-    -- auto comments 
+-- auto comments 
     {
         "numToStr/Comment.nvim",
 
@@ -29,64 +29,63 @@ return {
     },
 
 
-
-    -- fuzzy finder support
+-- fuzzy finder support
     {
-        "nvim-telescope/telescope.nvim",
-        tag = "0.1.5",
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.5",
 
-            cmd = "Telescope",
-            keys = {
-                { "<leader>ff", "<cmd>Telescope find_files<cr>" },
-                { "<leader>fs", "<cmd>Telescope live_grep<cr>" },
-                { "<leader>fh", "<cmd>Telescope help_tags<cr>" },
-                { "<leader>fp", "<cmd>Telescope project<cr>" },
-            },
-            dependencies = {
-                { "nvim-telescope/telescope-project.nvim" },
-                { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-            },
-            config = function()
-                require("telescope").setup({
+		cmd = "Telescope",
+		keys = {
+			{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
+			{ "<leader>fs", "<cmd>Telescope live_grep<cr>" },
+			{ "<leader>fh", "<cmd>Telescope help_tags<cr>" },
+			{ "<leader>fp", "<cmd>Telescope project<cr>" },
+		},
+		dependencies = {
+			{ "nvim-telescope/telescope-project.nvim" },
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		},
+		config = function()
+			require("telescope").setup({
 
-                    defaults = {
-                        layout_strategy = "horizontal",
-                        layout_config = {
-                            horizontal = {
-                                height = 0.9,
-                                width = 0.9,
-                                preview_cutoff = 0,
-                                preview_width = 0.7,
-                                prompt_position = "bottom",
-                            },
-                        },
-              mappings = {
-                n = {
-                  ["q"] = "close",
-                }
-              }
-                    },
-                    extensions = {
-                        project = {
-                base_dirs = {
-                  { path = '~/projects', max_depth = 4 }
+				defaults = {
+					layout_strategy = "horizontal",
+					layout_config = {
+						horizontal = {
+							height = 0.9,
+							width = 0.9,
+							preview_cutoff = 0,
+							preview_width = 0.7,
+							prompt_position = "bottom",
+						},
+					},
+					  mappings = {
+						n = {
+						  ["q"] = "close",
+						}
+					}
                 },
+                extensions = {
+                    project = {
+                	base_dirs = {
+                  	{ path = '~/projects', max_depth = 4 }
+                	},
 
-                            theme = "dropdown",
-                            order_by = "asc",
-                            sync_with_nvim_tree = true,
-                        },
-                    },
-                })
+						theme = "dropdown",
+						order_by = "asc",
+						sync_with_nvim_tree = true,
+					},
+				},
+			})
 
-                require("telescope").load_extension("fzf")
-                require("telescope").load_extension("project")
-            end,
-        },
+			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("project")
+		end,
+    },
 
 
-  -- add autocompletion support
-  {
+-- add autocompletion support
+	{
 		"hrsh7th/nvim-cmp",
 
     event = { "InsertEnter", "CmdlineEnter" },
@@ -200,11 +199,7 @@ return {
         load = {
           ["core.defaults"] = {},
           ["core.summary"] = {},
-          ["core.concealer"] = {
-            config = {
-              icon_preset = "diamond"
-            }
-          },
+          -- ["core.concealer"] = {},
           ["core.keybinds"] = {
             config = {
               hook = function (keybinds)
@@ -231,8 +226,9 @@ return {
     end,
   },
 
-  -- debugger
-  {
+
+-- debugger
+	{
 		"mfussenegger/nvim-dap",
 
 		lazy = true,
@@ -247,7 +243,7 @@ return {
 
 
 			dap.configurations.c = {
-			  	{
+				{
 					name = "Launch",
 					type = "gdb",
 					request = "launch",
@@ -261,7 +257,8 @@ return {
 		end,
 	},
 
-      -- file browser
+
+-- file browser
     {
         'stevearc/oil.nvim',
 
@@ -278,5 +275,5 @@ return {
             },
           })
         end
-    },
+	},
 }

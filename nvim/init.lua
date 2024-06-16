@@ -2,7 +2,7 @@ require("plugins-setup")
 
 SERVER_LANGS = {
 	lsp = {
-        "rust_analyzer",
+    	"rust_analyzer",
         "taplo",
 		"lua_ls",
 		"csharp_ls",
@@ -12,7 +12,6 @@ SERVER_LANGS = {
 		"tsserver",
 		"clangd",
 	},
-
 	treesitter = {
         "rust",
 		"lua",

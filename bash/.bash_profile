@@ -33,6 +33,7 @@ export NIMBLE_DIR="$XDG_DATA_HOME"/nibmle
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/nuget
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export MPD_HOST=localhost
 
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc 
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history

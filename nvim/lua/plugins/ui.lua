@@ -1,61 +1,60 @@
 return {
-
-    -- icons
-  { "nvim-tree/nvim-web-devicons", lazy = true },
-
-
-  -- ui components
-  { "MunifTanjim/nui.nvim", lazy = true },
+-- icons
+	{ "nvim-tree/nvim-web-devicons", lazy = true },
 
 
-  -- ui components
-  { "rcarriga/nvim-notify", lazy = true },
+-- ui components
+  	{ "MunifTanjim/nui.nvim", lazy = true },
 
 
-  -- support for colors
-  {
-    "NvChad/nvim-colorizer.lua",
-
-    ft = { "css", "html", "javascript" },
-    config = function()
-      require("colorizer").setup({ filetypes = { "css", "html", "javascript" } })
-    end,
-  },
+-- ui components
+  	{ "rcarriga/nvim-notify", lazy = true },
 
 
-  -- ui replacment for messages, cmdline and the popupmenu
-  {
-    "folke/noice.nvim",
+-- support for colors
+	{
+		"NvChad/nvim-colorizer.lua",
 
-    event = "VeryLazy",
-    config = function()
-      require("noice").setup({
-        lsp = {
-          override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-          },
-        },
-        presets = {
-          bottom_search = false,
-          command_palette = true,
-          long_message_to_split = true,
-          inc_rename = false,
-          lsp_doc_border = false,
-        },
-      })
-    end,
-  },
+		ft = { "css", "html", "javascript" },
+		config = function()
+	  		require("colorizer").setup({ filetypes = { "css", "html", "javascript" } })
+		end,
+	},
 
 
-  -- startup screen
-  {
-    "glepnir/dashboard-nvim",
+-- ui replacment for messages, cmdline and the popupmenu
+	{
+    	"folke/noice.nvim",
 
-    event = "VimEnter",
-    opts = function ()
-      local logo = [[
+		event = "VeryLazy",
+		config = function()
+			require("noice").setup({
+				lsp = {
+				  override = {
+					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+					["vim.lsp.util.stylize_markdown"] = true,
+					["cmp.entry.get_documentation"] = true,
+				  },
+				},
+				presets = {
+				  bottom_search = false,
+				  command_palette = true,
+				  long_message_to_split = true,
+				  inc_rename = false,
+				  lsp_doc_border = false,
+				},
+			})
+		end,
+	},
+
+
+-- startup screen
+	{
+    	"glepnir/dashboard-nvim",
+
+		event = "VimEnter",
+    	opts = function ()
+			local logo = [[
 ╔─────────────────────────────────────────────────────────────────────────╗
 │                                                                         │
 │                                                                         │
@@ -70,52 +69,53 @@ return {
 │                                                                         │
 │                                                                         │
 ╚─────────────────────────────────────────────────────────────────────────╝
-      ]]
+      		]]
 
 
-    logo = string.rep("\n", 8) .. logo .. "\n\n"
+			logo = string.rep("\n", 8) .. logo .. "\n\n"
 
-    local opts = {
-      theme = "doom",
-      hide = {
-        statusline = false,
-      },
-      config = {
-        header = vim.split(logo, "\n"),
-        center = {
-          { action = "Oil --float",         desc = " File Browser",   icon = " ", key = "o" },
-          { action = "Telescope project",   desc = " Projects",       icon = " ", key = "p" },
-          { action = "Neorg index",         desc = " Notes",          icon = " ", key = "n" },
-          { action = "Lazy",                desc = " Lazy",           icon = " ", key = "l" },
-          { action = "Mason",               desc = " Mason",          icon = " ", key = "m" },
-          { action = "qa",                  desc = " Quit",           icon = " ", key = "q" },
-        },
-        footer = {},
-      },
-    }
+			local opts = {
+				theme = "doom",
+				  hide = {
+					statusline = false,
+				  },
+				  config = {
+					header = vim.split(logo, "\n"),
+					center = {
+					  { action = "Oil --float",         desc = " File Browser",   icon = " ", key = "o" },
+					  { action = "Telescope project",   desc = " Projects",       icon = " ", key = "p" },
+					  { action = "Neorg index",         desc = " Notes",          icon = " ", key = "n" },
+					  { action = "Lazy",                desc = " Lazy",           icon = " ", key = "l" },
+					  { action = "Mason",               desc = " Mason",          icon = " ", key = "m" },
+					  { action = "qa",                  desc = " Quit",           icon = " ", key = "q" },
+					},
+					footer = {},
+				  },
+			}
 
-    return opts
-    end
-  },
+			return opts
+		end
+	},
 
 
   -- statusline
-  {
+	{
 		"nvim-lualine/lualine.nvim",
 
 
-    event = "VeryLazy",
-    init = function()
-      vim.g.lualine_laststatus = vim.o.laststatus
+		event = "VeryLazy",
+		init = function()
+			vim.g.lualine_laststatus = vim.o.laststatus
 
-      if vim.fn.argc(-1) > 0 then
-        -- set an empty statusline till lualine loads
-        vim.o.statusline = " "
-      else
-        -- hide the statusline on the starter page
-        vim.o.laststatus = 0
-      end
-    end,
+			if vim.fn.argc(-1) > 0 then
+				-- set an empty statusline till lualine loads
+				vim.o.statusline = " "
+			else
+				-- hide the statusline on the starter page
+				vim.o.laststatus = 0
+			end
+		end,
+
 		config = function()
 			require("lualine").setup({
 				options = {
@@ -124,14 +124,14 @@ return {
 					component_separators = { left = "󰍟", right = "󰍞" },
 					section_separators = { left = "", right = "" },
 					disabled_filetypes = {
-            statusline = { "dashboard" },
-            "TelescopePrompt",
-            "lazy",
-            "norg",
-            "term",
-            "oil",
-            "checkhealth",
-            "mason",
+            			statusline = { "dashboard" },
+						"TelescopePrompt",
+						"lazy",
+						"norg",
+						"term",
+						"oil",
+						"checkhealth",
+						"mason",
 						"help",
 						"gitcommit",
 					},
@@ -146,16 +146,17 @@ return {
 				},
 			})
 		end,
-  },
+	},
 
-  -- debugger ui
-  {
+
+-- debugger ui
+	{
 		"rcarriga/nvim-dap-ui",
 
 		keys = {
 			{ "<f5>", "<cmd>DapContinue<cr>" },
 			{ "<leader>dn", "<cmd>DapStepOver<cr>" },
-			{ "<leader>di", "<cmd>DapStepInfo<cr>" },
+			{ "<leader>di", "<cmd>DapStepInto<cr>" },
 			{ "<leader>do", "<cmd>DapStepOut<cr>" },
 			{ "<leader>dx", "<cmd>DapTerminate<cr>" },
 			{ "<leader>db", "<cmd>DapToggleBreakpoint<cr>" },

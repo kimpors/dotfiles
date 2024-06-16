@@ -64,11 +64,11 @@ opt.conceallevel = 3
 local api = vim.api
 
 api.nvim_create_autocmd("FileType", {
-  pattern = { "norg", "term", "oil", "gitcommit", "diff", "checkhealth" },
-  callback = function ()
-    vim.cmd("setlocal nonumber")
-    vim.cmd("setlocal norelativenumber")
-  end
+	pattern = { "norg", "term", "oil", "gitcommit", "diff", "checkhealth" },
+  	callback = function ()
+		vim.cmd("setlocal nonumber")
+		vim.cmd("setlocal norelativenumber")
+	end
 })
 
 --KEYMAPS
