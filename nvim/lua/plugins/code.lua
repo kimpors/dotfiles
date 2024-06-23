@@ -1,6 +1,6 @@
 return {
+	{ "pysan3/pathlib.nvim", lazy = true },
 	{ "nvim-lua/plenary.nvim", lazy = true },
-
 
 -- support for autopair 
     {
@@ -180,26 +180,26 @@ return {
     end,
   },
 
-  	-- for neorg
+-- for neorg
   	{
         "vhyrro/luarocks.nvim",
         priority = 1000,
         config = true,
 	},
 
-  -- for note taking
+-- for note taking
   {
     "nvim-neorg/neorg",
 	dependencies = { "luarocks.nvim" },
 
     cmd = "Neorg",
-    build = ":Neorg sync-parsers",
+    -- build = ":Neorg sync-parsers",
     config = function()
       require("neorg").setup {
         load = {
           ["core.defaults"] = {},
           ["core.summary"] = {},
-          -- ["core.concealer"] = {},
+          ["core.concealer"] = {},
           ["core.keybinds"] = {
             config = {
               hook = function (keybinds)
@@ -218,7 +218,7 @@ return {
               workspaces = {
                 notes = "~/notes",
               },
-              default_workspace = "notes"
+			  default_workspace = "notes"
             },
           },
         },
