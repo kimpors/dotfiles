@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo pacman -S ttf-hack-nerd ttf-font-awesome \
+	neovim mpd mpc ncmpcpp xclip
+
 # bash
 if ! [ -L "$HOME/.bashrc" ]; 
 then
