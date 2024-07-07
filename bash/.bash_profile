@@ -41,5 +41,4 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export VIEB_DATAFOLDER="$XDG_DATA_HOME"/vieb
 export VIEB_CONFIG_FILE="$XDG_CONFIG_HOME"/viebrc
 
-
 startx

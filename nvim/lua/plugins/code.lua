@@ -189,7 +189,7 @@ return {
 
   -- for note taking
   {
-    "nvim-neorg/neorg",
+	"nvim-neorg/neorg",
 	dependencies = { "luarocks.nvim" },
 
     cmd = "Neorg",
@@ -199,7 +199,7 @@ return {
         load = {
           ["core.defaults"] = {},
           ["core.summary"] = {},
-          -- ["core.concealer"] = {},
+          ["core.concealer"] = {},
           ["core.keybinds"] = {
             config = {
               hook = function (keybinds)
