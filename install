@@ -1,8 +1,7 @@
 #!/bin/bash
 
 sudo pacman -S ttf-hack-nerd ttf-font-awesome \
-	neovim mpd mpc ncmpcpp xclip pipewire-media-session \
-	pipewire-pulse
+	mpd mpc ncmpcpp xclip	
 
 # bash
 if ! [ -L "$HOME/.bashrc" ]; 
@@ -42,14 +41,6 @@ then
   ln -s "$PWD/ncmpcpp" $XDG_CONFIG_HOME
 else
   echo "ncmpcpp symlink already exists"
-fi
-
-#vieb
-if ! [ -L "$XDG_CONFIG_HOME/viebrc" ]; 
-then
-  ln -s "$PWD/vieb/viebrc" $XDG_CONFIG_HOME
-else
-  echo "viebrc symlink already exists"
 fi
 
 #user scripts

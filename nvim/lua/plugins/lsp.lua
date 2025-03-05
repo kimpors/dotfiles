@@ -39,12 +39,10 @@ return {
 					})
 				end,
 			},
-			"hrsh7th/cmp-nvim-lsp",
 		},
 
 		config = function()
 			local lspconfig = require("lspconfig")
-			local cmp = require("cmp_nvim_lsp")
 
 			local keymap = vim.keymap
 
@@ -61,7 +59,6 @@ return {
 			for _, value in pairs(SERVER_LANGS.lsp) do
 				lspconfig[value].setup({
 					on_attach = on_attach,
-					capabilities = cmp.default_capabilities(),
 				})
 			end
 
