@@ -13,6 +13,51 @@ return {
 		end,
 	},
 
+-- completion
+	{
+	  'saghen/blink.cmp',
+	  dependencies = { 'rafamadriz/friendly-snippets' },
+
+	  version = '1.*',
+	  opts = {
+		keymap = { preset = 'enter' },
+		enabled = function()
+			return not vim.tbl_contains({ "c" }, vim.bo.filetype)
+		end,
+
+		appearance = {
+		  nerd_font_variant = 'mono'
+		},
+
+		completion = { documentation = { auto_show = false } },
+		fuzzy = { implementation = "prefer_rust_with_warning" }
+	  },
+	  opts_extend = { "sources.default" }
+	},
+
+	-- mason
+	{
+    	"williamboman/mason-lspconfig.nvim",
+
+        event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
+        cmd = "Mason",
+        dependencies = {
+          {
+            "williamboman/mason.nvim",
+
+            config = function()
+              require("mason").setup()
+            end,
+          },
+        },
+        config = function()
+          require("mason-lspconfig").setup({
+            ensure_installed = {},
+            automatic_installation = true,
+          })
+        end,
+    },
+
 	-- fuzzy finder support
 	{
 		"nvim-telescope/telescope.nvim",
@@ -101,7 +146,7 @@ return {
 		},
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = SERVER_LANGS.treesitter,
+				ensure_installed = {},
 				highlight = { enable = true },
 				autotag = { enable = true },
 				sync_install = true,
