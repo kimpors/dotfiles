@@ -22,7 +22,7 @@ fi
 # nvim
 if ! [ -L "$XDG_CONFIG_HOME/nvim" ]; 
 then
-  ln -s  "$PWD/nvim" $XDG_CONFIG_HOME
+  ln -sf "$PWD/nvim" $XDG_CONFIG_HOME
 else
   echo "nvim symlink already exists"
 fi
@@ -30,7 +30,7 @@ fi
 # mpd
 if ! [ -L "$XDG_CONFIG_HOME/mpd" ];
 then
-  ln -s "$PWD/mpd" $XDG_CONFIG_HOME
+  ln -sf "$PWD/mpd" $XDG_CONFIG_HOME
 else
   echo "mpd symlink already exists"
 fi
@@ -38,7 +38,7 @@ fi
 # ncmpcpp
 if ! [ -L "$XDG_CONFIG_HOME/ncmpcpp" ];
 then
-  ln -s "$PWD/ncmpcpp" $XDG_CONFIG_HOME
+  ln -sf "$PWD/ncmpcpp" $XDG_CONFIG_HOME
 else
   echo "ncmpcpp symlink already exists"
 fi
@@ -46,7 +46,7 @@ fi
 #user scripts
 if ! [ -L "$XDG_DATA_HOME/bin" ];
 then
-  ln -s "$PWD/bin" $XDG_DATA_HOME
+  ln -sf "$PWD/bin" $XDG_DATA_HOME
 else
   echo "bin symlink already exists"
 fi
