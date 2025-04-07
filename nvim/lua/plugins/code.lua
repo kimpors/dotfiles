@@ -1,7 +1,7 @@
 return {
 	{ "nvim-lua/plenary.nvim", lazy = true },
 
-	-- support for autopair
+-- support for autopair
 	{
 		"windwp/nvim-autopairs",
 
@@ -17,6 +17,7 @@ return {
 -- leetcode
 	{
 		"kawre/leetcode.nvim",
+		cmd = "Leet",
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
 			"nvim-lua/plenary.nvim",
@@ -31,9 +32,10 @@ return {
 		},
 	},
 
--- -- completion
+-- completion
 	{
 	  'saghen/blink.cmp',
+	  ft = { "lua" },
 	  opts = {
 		enabled = function()
 			return not vim.tbl_contains({ "c" }, vim.bo.filetype)
@@ -43,11 +45,10 @@ return {
 	  opts_extend = { "source.default" }
 	},
 
-	-- mason
+-- mason
 	{
     	"williamboman/mason-lspconfig.nvim",
 
-        event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
         cmd = "Mason",
         dependencies = {
           {
@@ -66,7 +67,7 @@ return {
         end,
     },
 
-	-- fuzzy finder support
+-- fuzzy finder support
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
@@ -120,11 +121,11 @@ return {
 		end,
 	},
 	
-	-- add git support
+-- add git support
 	{
 		"lewis6991/gitsigns.nvim",
 
-		event = "VeryLazy",
+		event = "InsertEnter",
 		config = function()
 			require("gitsigns").setup({
 				current_line_blame = true
@@ -132,7 +133,7 @@ return {
 		end,
 	},
 
-	-- add wrap selection
+-- add wrap selection
 	{
 		"kylechui/nvim-surround",
 		version = "*",
@@ -143,11 +144,11 @@ return {
 		end,
 	},
 
-	-- add highlight support
+-- add highlight support
 	{
 		"nvim-treesitter/nvim-treesitter",
 
-		event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
+		event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 		build = ":TSUpdate",
 		dependencies = {
 			"windwp/nvim-ts-autotag",
@@ -162,14 +163,14 @@ return {
 		end,
 	},
 
-	-- for neorg
+-- for neorg
 	{
 		"vhyrro/luarocks.nvim",
 		priority = 1000,
 		config = true,
 	},
 
-	-- for note taking
+-- for note taking
 	{
 		"nvim-neorg/neorg",
 		dependencies = { "luarocks.nvim" },
@@ -208,7 +209,7 @@ return {
 		end,
 	},
 
-	-- debugger
+-- debugger
 	{
 		"mfussenegger/nvim-dap",
 
@@ -237,7 +238,7 @@ return {
 		end,
 	},
 
-	-- file browser
+-- file browser
 	{
 		"stevearc/oil.nvim",
 
