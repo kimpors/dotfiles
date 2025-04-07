@@ -13,26 +13,34 @@ return {
 		end,
 	},
 
--- completion
+
+-- leetcode
+	{
+		"kawre/leetcode.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+		},
+		opts = {
+			lang = "c",
+			storage = {
+				home = "/home/kimpors/project/leetcode/",
+				cache = "/home/kimpors/.local/share/leetcode/",
+			}
+		},
+	},
+
+-- -- completion
 	{
 	  'saghen/blink.cmp',
-	  dependencies = { 'rafamadriz/friendly-snippets' },
-
-	  version = '1.*',
 	  opts = {
-		keymap = { preset = 'enter' },
 		enabled = function()
 			return not vim.tbl_contains({ "c" }, vim.bo.filetype)
 		end,
-
-		appearance = {
-		  nerd_font_variant = 'mono'
-		},
-
-		completion = { documentation = { auto_show = false } },
 		fuzzy = { implementation = "prefer_rust_with_warning" }
 	  },
-	  opts_extend = { "sources.default" }
+	  opts_extend = { "source.default" }
 	},
 
 	-- mason

@@ -52,7 +52,6 @@ opt.backspace = "indent,eol,start"
 
 opt.textwidth = 60
 
-
 -- split windows
 opt.splitright = true
 opt.splitbelow = true
@@ -83,7 +82,6 @@ end)
 -- general keymaps
 keymap.set("n", "x", '"_x')
 keymap.set("v", "y", '"+y')
-
 
 -- open notes
 keymap.set("n", "<leader>n", "<cmd>Neorg index<cr>")
