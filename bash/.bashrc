@@ -22,6 +22,8 @@ alias clear="clear && nitch"
 
 alias mariadb="doas rc-service mysql start && mariadb -u root -p"
 
+alias gcc="gcc -Wall -Werror"
+
 cd() { builtin cd "$@" && ls; }
 nitch
 ls
