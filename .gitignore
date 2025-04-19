@@ -1,2 +1,6 @@
 lazy-lock.json
 nvim/lua/plugins/dev
+mpd/database
+mpd/pid
+mpd/state
+mpd/sticker.sql
