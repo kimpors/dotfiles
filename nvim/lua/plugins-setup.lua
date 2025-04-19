@@ -65,6 +65,7 @@ opt.conceallevel = 3
 
 -- AUTOCMD
 local api = vim.api
+local width = api.nvim_win_get_width(0)
 
 api.nvim_create_autocmd("FileType", {
 	pattern = { "norg", "term", "oil", "gitcommit", "diff", "checkhealth" },
@@ -97,6 +98,8 @@ keymap.set("n", "<leader>o", "<cmd>Oil<cr>")
 keymap.set("n", "Q", ":conf qa<cr>")
 
 -- terminal
+local command = string.format("<cmd>ToggleTerm size=%d direction=vertical name=suicide<cr>", width / 2)
+keymap.set("n", "<leader>t", command)
 keymap.set("t", "<ESC>", "<C-\\><C-n>")
 keymap.set("t", "q", "<cmd>exit<cr>")
 

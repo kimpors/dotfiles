@@ -12,6 +12,14 @@ return {
 			})
 		end,
 	},
+
+-- terminal
+	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		config = true
+	},
+
 -- math
 	{
 		"jbyuki/nabla.nvim"
