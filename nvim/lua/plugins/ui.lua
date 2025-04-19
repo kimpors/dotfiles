@@ -76,11 +76,9 @@ return {
 				config = {
 					header = vim.split(logo, "\n"),
 					center = {
-						{ action = "Oil --float", desc = " File Browser", icon = " ", key = "o" },
 						{ action = "Telescope project", desc = " Projects", icon = " ", key = "p" },
 						{ action = "Neorg index", desc = " Notes", icon = " ", key = "n" },
 						{ action = "Lazy", desc = " Lazy", icon = " ", key = "l" },
-						{ action = "Mason", desc = " Mason", icon = " ", key = "m" },
 						{ action = "qa", desc = " Quit", icon = " ", key = "q" },
 					},
 					footer = {},
@@ -123,7 +121,6 @@ return {
 						"term",
 						"oil",
 						"checkhealth",
-						"mason",
 						"help",
 						"gitcommit",
 					},

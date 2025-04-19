@@ -17,6 +17,10 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = ";"
 
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- disable providers
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
@@ -87,7 +91,7 @@ keymap.set("v", "y", '"+y')
 keymap.set("n", "<leader>n", "<cmd>Neorg index<cr>")
 
 -- open file browser
-keymap.set("n", "<leader>o", "<cmd>Oil --float<cr>")
+keymap.set("n", "<leader>o", "<cmd>Oil<cr>")
 
 -- close editor
 keymap.set("n", "Q", ":conf qa<cr>")
@@ -99,3 +103,6 @@ keymap.set("t", "q", "<cmd>exit<cr>")
 -- gitsign 
 keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis<cr>")
 keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>")
+
+-- latex
+keymap.set("n", "<leader>m", "<cmd>lua require('nabla').popup({ border = 'rounded' })<cr>")

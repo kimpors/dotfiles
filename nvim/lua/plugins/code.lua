@@ -12,6 +12,10 @@ return {
 			})
 		end,
 	},
+-- math
+	{
+		"jbyuki/nabla.nvim"
+	},
 
 
 -- leetcode
@@ -35,37 +39,15 @@ return {
 -- completion
 	{
 	  'saghen/blink.cmp',
-	  ft = { "lua" },
+	  ft = { "lua", "cmake", "cpp" },
 	  opts = {
 		enabled = function()
 			return not vim.tbl_contains({ "c" }, vim.bo.filetype)
 		end,
-		fuzzy = { implementation = "prefer_rust_with_warning" }
+		keymap = { preset = "super-tab" },
+		fuzzy = { implementation = "lua" }
 	  },
-	  opts_extend = { "source.default" }
 	},
-
--- mason
-	{
-    	"williamboman/mason-lspconfig.nvim",
-
-        cmd = "Mason",
-        dependencies = {
-          {
-            "williamboman/mason.nvim",
-
-            config = function()
-              require("mason").setup()
-            end,
-          },
-        },
-        config = function()
-          require("mason-lspconfig").setup({
-            ensure_installed = {},
-            automatic_installation = true,
-          })
-        end,
-    },
 
 -- fuzzy finder support
 	{
@@ -120,7 +102,7 @@ return {
 			require("telescope").load_extension("project")
 		end,
 	},
-	
+
 -- add git support
 	{
 		"lewis6991/gitsigns.nvim",
@@ -148,7 +130,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 
-		event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+		event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
 		build = ":TSUpdate",
 		dependencies = {
 			"windwp/nvim-ts-autotag",
@@ -242,7 +224,7 @@ return {
 	{
 		"stevearc/oil.nvim",
 
-		cmd = "Oil",
+		lazy = false,
 		config = function()
 			require("oil").setup({
 				keymaps = {

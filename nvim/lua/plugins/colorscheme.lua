@@ -12,7 +12,6 @@ return {
 				noice = true,
 				dashboard = true,
 				markdown = true,
-				mason = true,
 				telescope = {
 					enabled = true,
 				},
